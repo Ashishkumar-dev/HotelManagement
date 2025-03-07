@@ -18,7 +18,9 @@ namespace LoginPanel
             
           
             InitializeComponent();
-           
+            guna2Button2.Hide();
+
+
         }
      
         private void pictureBox1_Click(object sender, EventArgs e)
@@ -53,7 +55,7 @@ namespace LoginPanel
             {
                 // return required field message 
                 guna2TextBox1.BorderColor = Color.Red;
-                guna2TextBox2.BorderColor = Color.Red;
+                guna2TextBox2.BorderColor = Color.Red;                
 
             }
             else if (String.IsNullOrEmpty(guna2TextBox1.Text))
@@ -82,7 +84,7 @@ namespace LoginPanel
             else
             {
                 error err = new error();
-                err.Show();
+                err.ShowDialog();
             }
         }
 

@@ -12,18 +12,18 @@ namespace LoginPanel
 {
     public partial class SignUpSuccess : Form
     {
-        public SignUpSuccess()
+        Form opener;
+        public SignUpSuccess(Form parentForm)
         {
             InitializeComponent();
+            opener = parentForm;
         }
 
         private void guna2Button1_Click(object sender, EventArgs e)
         {
-            this.Hide();
-            Signup hi = new Signup();
-            hi.Hide();
-            var Login = new Login();
-            Login.Closed += (s, args) => this.Close();
+            opener.Close();
+            this.Close();            
+            var Login = new Login();            
             Login.Show();
         }
 

@@ -13,25 +13,30 @@ using System.IO;
 using System.Data.SqlClient;
 using System.Collections.Specialized;
 using System.Web;
+using Guna.UI2.WinForms;
 
 namespace LoginPanel
 {
     public partial class Forget : Form
     {
+        public static Forget instance;
+        public Guna2TextBox text;
         public Forget()
         {
             InitializeComponent();
+            instance = this;
+            text = guna2TextBox1;
         }
 
         private void guna2Button2_Click(object sender, EventArgs e)
         {
-            string otp = File.ReadAllText(@".\otp.txt");
+            //    string otp = File.ReadAllText(@".\otp.txt");
             
             if (guna2TextBox3.Text == otp)
             {
-                reset reset = new reset();
-                reset.Show();
-                this.Hide();
+                reset reset = new reset(this);
+                reset.ShowDialog();
+                
             }
             else
             {
@@ -46,19 +51,19 @@ namespace LoginPanel
             var Login = new Login();
             Login.Show();
         }
-
+        string otp;
         private void guna2Button1_Click(object sender, EventArgs e)
         {
             string to, from, pass, messageBody;          
             string numbers = "0123456789";
-            File.WriteAllText(@".\email.txt",guna2TextBox1.Text);
+         //   File.WriteAllText(@".\email.txt",guna2TextBox1.Text);
             Random random = new Random();
-            string otp = string.Empty;
+            otp = string.Empty;
             for (int i = 0; i < 4; i++)
             {
                 int tempval = random.Next(0, numbers.Length);
                 otp += tempval;
-                File.WriteAllText(@".\otp.txt", otp);
+              //  File.WriteAllText(@".\otp.txt", otp);
 
             }
             //Connection String   
@@ -77,7 +82,7 @@ namespace LoginPanel
                 MailMessage message = new MailMessage();
                 to = guna2TextBox1.Text;
                 from = "ashishtech890@gmail.com";
-                pass = "Ashish@890";
+                pass = "qhoc fagk hocz zdee";
                 messageBody = "You can use this OTP for reset your account password <br> OTP : " + otp;
                 message.To.Add(to);
                 message.From = new MailAddress(from);
@@ -92,7 +97,7 @@ namespace LoginPanel
                 try
                 {
                     smtp.Send(message);
-                    MessageBox.Show("OTP Successfully Send");                    
+                    MessageBox.Show("OTP successfully send to your email address");                    
                 }
                 catch (Exception)
                 {
@@ -103,18 +108,8 @@ namespace LoginPanel
             {
                 MessageBox.Show("Wrong Email Address it does not match with our records");
             }
-            using (var wb = new WebClient())
-            {
-                byte[] response = wb.UploadValues("https://api.textlocal.in/send/", new NameValueCollection()
-                {
-                {"apikey" , "NmEzODcwNzUzNjUzNTIzMDRhNWE2MTY0NmU0ZjM1NzE"},
-                {"numbers" , "917408655629"},
-                {"message" ,HttpUtility.UrlEncode("You can use thos OTP for reset your account password<br>OTP " + otp)},
-                {"sender" , "TXTLCL"}
-                });
-                string result = System.Text.Encoding.UTF8.GetString(response);
-            }
         }
+
         Point lastPoint;
         private void Forget_MouseMove(object sender, MouseEventArgs e)
         {

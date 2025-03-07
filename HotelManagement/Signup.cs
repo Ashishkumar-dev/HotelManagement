@@ -44,12 +44,10 @@ namespace LoginPanel
                 //Connection open here   
                 con.Open();
                 int i = cmd.ExecuteNonQuery();
-                con.Close();
-                this.Hide();
-                var SignUpSuccess = new SignUpSuccess();
-                SignUpSuccess.Closed += (s, args) => this.Close();
+                con.Close();               
+                var SignUpSuccess = new SignUpSuccess(this);                
                 SignUpSuccess.StartPosition = FormStartPosition.CenterParent;
-                SignUpSuccess.ShowDialog(this);
+                SignUpSuccess.ShowDialog();
             }
             catch(Exception)
             {

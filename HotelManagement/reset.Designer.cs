@@ -35,6 +35,7 @@ namespace LoginPanel
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.guna2Button2 = new Guna.UI2.WinForms.Guna2Button();
+            this.guna2TileButton2 = new Guna.UI2.WinForms.Guna2TileButton();
             this.SuspendLayout();
             // 
             // label1
@@ -155,12 +156,39 @@ namespace LoginPanel
             this.guna2Button2.Text = "Reset Password";
             this.guna2Button2.Click += new System.EventHandler(this.guna2Button2_Click);
             // 
+            // guna2TileButton2
+            // 
+            this.guna2TileButton2.BackColor = System.Drawing.Color.Transparent;
+            this.guna2TileButton2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+            this.guna2TileButton2.CheckedState.Parent = this.guna2TileButton2;
+            this.guna2TileButton2.CustomImages.Parent = this.guna2TileButton2;
+            this.guna2TileButton2.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.guna2TileButton2.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.guna2TileButton2.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.guna2TileButton2.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.guna2TileButton2.DisabledState.Parent = this.guna2TileButton2;
+            this.guna2TileButton2.FillColor = System.Drawing.Color.Transparent;
+            this.guna2TileButton2.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.guna2TileButton2.ForeColor = System.Drawing.Color.White;
+            this.guna2TileButton2.HoverState.FillColor = System.Drawing.Color.Red;
+            this.guna2TileButton2.HoverState.ForeColor = System.Drawing.Color.White;
+            this.guna2TileButton2.HoverState.Parent = this.guna2TileButton2;
+            this.guna2TileButton2.Location = new System.Drawing.Point(306, -2);
+            this.guna2TileButton2.Name = "guna2TileButton2";
+            this.guna2TileButton2.ShadowDecoration.Parent = this.guna2TileButton2;
+            this.guna2TileButton2.Size = new System.Drawing.Size(32, 31);
+            this.guna2TileButton2.TabIndex = 47;
+            this.guna2TileButton2.Text = "X";
+            this.guna2TileButton2.UseTransparentBackground = true;
+            this.guna2TileButton2.Click += new System.EventHandler(this.guna2TileButton2_Click);
+            // 
             // reset
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.Control;
             this.ClientSize = new System.Drawing.Size(337, 270);
+            this.Controls.Add(this.guna2TileButton2);
             this.Controls.Add(this.guna2Button2);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
@@ -169,8 +197,11 @@ namespace LoginPanel
             this.Controls.Add(this.label1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "reset";
+            this.ShowIcon = false;
+            this.ShowInTaskbar = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "reset";
+            this.TopMost = true;
             this.ResumeLayout(false);
 
         }
@@ -183,5 +214,6 @@ namespace LoginPanel
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label3;
         private Guna.UI2.WinForms.Guna2Button guna2Button2;
+        private Guna.UI2.WinForms.Guna2TileButton guna2TileButton2;
     }
 }
